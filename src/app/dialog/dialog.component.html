@@ -1,0 +1,14 @@
+<form [formGroup]="warriorForm">
+    <div class="addWarriorDialogHeader">
+        <button class="closeButton" (click)="handleCloseButtonClick()">❌</button>
+    </div>
+    <div class="addWarriorDialogBody">
+        <div class="input-container">
+            <label for="numberOfWarriors">Add warriors</label>
+            <input type="number" id="numberOfWarriors" class="modern-input" formControlName="numberOfWarriors" [max]="availableWarriorNumber" />
+        </div>
+    </div>
+    <div class="addWarriorDialogFooter">
+        <app-game-button [text]="'Save'" (clickEvent)="handleSaveButtonClick()" />
+    </div>
+</form>

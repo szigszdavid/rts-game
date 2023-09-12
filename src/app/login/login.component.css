@@ -1,0 +1,34 @@
+.button-container {
+    display: flex;
+    justify-content: center;
+    padding: 2vh;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modern-input {
+    width: 300px;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #3498db;
+    outline: none;
+    font-size: 16px;
+    transition: border-bottom 0.3s ease;
+}
+
+.modern-input:focus {
+    border-bottom: 2px solid #e74c3c;
+}
+
+.errorMessage {
+    color: red;
+}
+
+.errorMessages {
+    display: flex;
+    justify-content: center;
+}

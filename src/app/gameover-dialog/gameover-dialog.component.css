@@ -1,0 +1,28 @@
+.gameOverDialog {
+    position: relative;
+    z-index: 2;
+    background-color: white;
+    border: 1px solid black
+}
+
+.gameOverDialogHeader, .gameOverDialogFooter {
+    display: flex;
+    justify-content: flex-end;    
+}
+
+.gameOverDialogHeader {
+    padding-bottom: 2vw;
+}
+
+.gameOverDialogBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vw;
+}
+
+.closeButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}

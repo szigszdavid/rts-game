@@ -1,0 +1,52 @@
+form {
+    position: relative;
+    z-index: 2;
+    background-color: white;
+    border: 1px solid black
+}
+
+.addWarriorDialogHeader, .addWarriorDialogFooter {
+    display: flex;
+    justify-content: flex-end;    
+}
+
+.addWarriorDialogHeader {
+    padding-bottom: 2vw;
+}
+
+.addWarriorDialogFooter {
+    padding-top: 2vw;
+}
+
+.addWarriorDialogBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vw;
+}
+
+.closeButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modern-input {
+    width: 300px;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #3498db;
+    outline: none;
+    font-size: 16px;
+    transition: border-bottom 0.3s ease;
+}
+
+.modern-input:focus {
+    border-bottom: 2px solid #e74c3c;
+}

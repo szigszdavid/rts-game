@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'rts-game';
+  currentPage = 'login'
+  @Output() username = ''
+
+  handleLogin(newUserName: string) {
+    this.currentPage = 'game'
+    this.username = newUserName
+  }
+
 }

@@ -1,0 +1,34 @@
+<form class="loginComponent" #loginForm="ngForm">
+  <div>
+    <div class="input-container">
+      <input
+        type="text"
+        id="username"
+        name="username"
+        class="modern-input form-control"
+        required
+        minlength="3"
+        maxlength="10"
+        [(ngModel)]="username"
+        #name="ngModel"
+        placeholder="Type in your username..."
+      />
+    </div>
+    <div
+      class="errorMessages"
+      *ngIf="name.invalid && (name.dirty || name.touched)"
+    >
+      <small class="errorMessage" *ngIf="name.errors?.['required']"
+        >Name is required.</small
+      >
+      <small class="errorMessage" *ngIf="name.errors?.['minlength']">
+        Name must be at least 3 characters long.
+      </small>
+    </div>
+    <app-game-button
+      [text]="'Login'"
+      [disabled]="loginForm.invalid ?? false"
+      (clickEvent)="onSubmit()"
+    />
+  </div>
+</form>

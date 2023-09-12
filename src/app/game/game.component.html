@@ -1,0 +1,39 @@
+<div (contextmenu)="onRightClick($event)">
+    <div class="gameComponentHeader">
+        <div class="chip">
+            ⌛ {{ clock }}
+        </div>
+        <app-game-button [text]="'Stop timer'" (clickEvent)="handleStopTimer()" [disabled]="!intervalOn" />
+        <app-game-button [text]="'Resume timer'" (clickEvent)="hadleResumeTimer()" [disabled]="intervalOn" />
+        <div class="chip">
+            💰 {{ deposit }}
+        </div>
+        <app-game-button [text]="'Build Barrack'" (clickEvent)="handleBuildBarrack()" [disabled]="deposit < 0" />
+        <div class="chip">
+            👤 {{ username }}
+        </div>
+    </div>
+    <div class="gameComponentBody" (contextmenu)="onRightClick($event)">
+        <div class="worker" [ngClass]="{'selectedWorker': selectedWorker === worker.name}" [ngStyle]="worker" *ngFor="let worker of workers" [id]="worker.name" (click)="handeSelectworker(worker.name)">
+            <img class="worker" [src]="images.worker" />
+            💎 {{ worker.gold }}
+        </div>
+        <div class="enemy" [ngStyle]="{ top: enemy.top + 'vh', left: enemy.left + 'vw'}" (contextmenu)="onEnemyRightClick($event)">
+            <img class="enemy" [src]="images.enemy" />
+            ❤ {{ enemy.healthPoints }}
+        </div>
+        <div class="mine" [ngStyle]="{ top: mine.top + 'vh', left: mine.left + 'vw'  }" *ngFor="let mine of mines" [id]="mine.name" (contextmenu)="onMineRightClick($event, mine.name)">
+            <img class="mine" [src]="images.mine" />
+        </div>
+        <div class="barrack" [ngClass]="{ disabledBarrack: barrack.time !== 0 }" [ngStyle]="barrack" *ngFor="let barrack of barracks; let i=index" (click)="handleBarrackOnClick(i, barrack)">
+            <img class="barrack" [src]="images.barrack" />
+            {{ barrack.time }}
+        </div>
+        <app-dialog [availableWarriorNumber]="3" [hidden]="!dialogVisible" (closeDialogEvent)="handleDialogClose()" (createWarriorsRequestEvent)="handleCreateWarriorsRequest($event)" />
+        <div class="warrior" [ngClass]="{ disabledWarrior: warrior.time !== 0, 'selectedWorker': selectedWorker === warrior.name }" [ngStyle]="warrior" *ngFor="let warrior of warriors" (click)="handeSelectworker(warrior.name)" [id]="warrior.name" >
+            <img class="warrior" [src]="images.warrior" />
+            {{ warrior.time }}
+        </div>
+        <app-gameover-dialog [hidden]="!gameOver" (closeEvent)="handleGameOverDialogClose()"></app-gameover-dialog>
+    </div>
+</div>
